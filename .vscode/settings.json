@@ -1,2 +1,6 @@
 {
+    "workbench.editor.titleScrollbarSizing": "large",
+    "breadcrumbs.enabled": true,
+    "editor.fontSize": 16,
+    // "editor.fontFamily": " 'Space Mono', monospace, Consolas, 'Courier New', "
 }

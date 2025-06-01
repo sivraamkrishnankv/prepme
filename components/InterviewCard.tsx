@@ -43,7 +43,7 @@ const InterviewCard = ({ interviewId, userId, role, type, techstack,
                         items-center'>
                             <Image src="/star.svg" alt='star'
                                 width={22} height={22} />
-                            <p>{feedback?.totalScore || '---'}</p>
+                            <p>{feedback?.totalScore || '---/100'}</p>
                         </div>
                     </div>
                     <p className='line-clamp-2 mt-5'>
