@@ -50,6 +50,12 @@ export async function signIn(params:SignInParams) {
         }
         await setSessionCookie(idToken);
 
+        // Make sure to return only JSON-serializable data:
+        return {
+            success: true,
+            message: "Signed in successfully",
+            // Add only simple values here
+        };
     }catch(e){
         console.log(e);
 
@@ -127,3 +133,11 @@ export async function getLatestInterviews(params:GetLatestInterviewsParams): Pro
         ...doc.data()
     })) as Interview[];
 }
+
+export async function getUserData(uid: string) {
+    const doc = await db.collection('users').doc(uid).get();
+    return {
+      success: true,
+      user: doc.data() // This is JSON-serializable
+    };
+  }
