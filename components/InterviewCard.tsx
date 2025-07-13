@@ -11,7 +11,7 @@ import { getFeedbackByInterviewId } from '@/lib/actions/general.action';
 const InterviewCard = async ({ id, userId, role, type, techstack,
     createdAt }: InterviewCardProps) => {
     const feedback = userId && id
-        ? getFeedbackByInterviewId({ interviewId: id, userId })
+        ? await getFeedbackByInterviewId({ interviewId: id, userId })
         : null;
     const normalizedType = /mix/gi.test(type) ? 'Mixed' : type;
     const formattedDate = dayjs(feedback?.createdAt || createdAt ||
@@ -47,7 +47,7 @@ const InterviewCard = async ({ id, userId, role, type, techstack,
                         items-center'>
                             <Image src="/star.svg" alt='star'
                                 width={22} height={22} />
-                            <p>{feedback?.totalScore || '---/100'}</p>
+                            <p>{feedback?.totalScore || '---'}/100</p>
                         </div>
                     </div>
                     <p className='line-clamp-2 mt-5'>
